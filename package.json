@@ -4,6 +4,10 @@
   "description": "Serialize and deserialize objects",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yinonburgansky/polymorphic-serializer.git"
+  },
   "author": "Yinon Burgansky",
   "license": "MIT",
   "scripts": {
