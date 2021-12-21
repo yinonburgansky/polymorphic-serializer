@@ -1,3 +1,4 @@
+import { classToFunction } from "../utils/class-to-function"
 import { DeserializerParams, Serializer, SerializerParams } from "./serializer"
 
 export class MapSerializer extends Serializer {
@@ -45,3 +46,5 @@ export class MapSerializer extends Serializer {
     return obj instanceof Map || (obj && obj.forEach && obj.set)
   }
 }
+
+export const map = classToFunction(MapSerializer)

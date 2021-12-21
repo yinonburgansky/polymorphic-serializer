@@ -1,3 +1,4 @@
+import { classToFunction } from "../utils/class-to-function"
 import { DeserializerParams, Serializer, SerializerParams } from "./serializer"
 
 export class NullableSerializer extends Serializer {
@@ -27,3 +28,5 @@ export class NullableSerializer extends Serializer {
     }
   }
 }
+
+export const nullable = classToFunction(NullableSerializer)

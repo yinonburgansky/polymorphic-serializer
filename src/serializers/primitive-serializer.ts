@@ -1,3 +1,4 @@
+import { classToFunction } from "../utils/class-to-function"
 import { DeserializerParams, Serializer, SerializerParams } from "./serializer"
 
 export class PrimitiveSerializer extends Serializer {
@@ -8,3 +9,5 @@ export class PrimitiveSerializer extends Serializer {
     setSelf(obj)
   }
 }
+
+export const primitive = classToFunction(PrimitiveSerializer)

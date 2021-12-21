@@ -1,3 +1,4 @@
+import { classToFunction } from "../utils/class-to-function"
 import { DeserializerParams, Serializer, SerializerParams } from "./serializer"
 
 interface IPropertySerializer {
@@ -44,3 +45,5 @@ export class PropertySerializer extends Serializer {
     this.itemSerializer.deserialize(params)
   }
 }
+
+export const property = classToFunction(PropertySerializer)

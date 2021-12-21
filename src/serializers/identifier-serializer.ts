@@ -1,3 +1,4 @@
+import { classToFunction } from "../utils/class-to-function"
 import { PrimitiveSerializer } from "./primitive-serializer"
 import { DeserializerParams } from "./serializer"
 
@@ -10,3 +11,5 @@ export class IdentifierSerializer extends PrimitiveSerializer {
     super.deserialize(params)
   }
 }
+
+export const identifier = classToFunction(IdentifierSerializer)

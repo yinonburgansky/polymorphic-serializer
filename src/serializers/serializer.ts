@@ -3,8 +3,8 @@ import { SerializationContext } from "../serialization-context"
 type SetSelf = (obj: unknown) => void
 
 export interface SerializerParams {
-  parent?: unknown
   obj: unknown
+  parent?: unknown
   setSelf: SetSelf
   context: SerializationContext
 }

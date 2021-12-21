@@ -1,5 +1,6 @@
 import { constructor } from "../serialization-container"
 import { SerializationContext } from "../serialization-context"
+import { classToFunction } from "../utils/class-to-function"
 import { ObjectSerializer } from "./object-serializer"
 import { DeserializerParams, Serializer, SerializerParams } from "./serializer"
 
@@ -27,7 +28,11 @@ export class ClassSerializer<T> extends ObjectSerializer<T> {
 
   deserialize({ obj, setSelf, context }: DeserializerParams): void {
     const result = context.container.resolveInstanceOrError<T>(this.classTarget)
-    super.deserializeExisting(obj as any, result as any, context)
+    super.deserializeExisting(
+      obj as Record<string, unknown>,
+      result as Record<string, unknown>,
+      context
+    )
     setSelf(result)
   }
 
@@ -42,3 +47,5 @@ export class ClassSerializer<T> extends ObjectSerializer<T> {
     return obj instanceof this.classTarget
   }
 }
+
+export const classM = classToFunction(ClassSerializer)

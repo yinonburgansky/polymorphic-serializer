@@ -1,3 +1,4 @@
+import { classToFunction } from "../utils/class-to-function"
 import { IdentifierSerializer, IDENTIFIERS_KEY } from "./identifier-serializer"
 import { DeserializerParams, Serializer, SerializerParams } from "./serializer"
 
@@ -26,3 +27,5 @@ export class ReferenceSerializer extends Serializer {
     })
   }
 }
+
+export const reference = classToFunction(ReferenceSerializer)

@@ -31,7 +31,7 @@ export class ObjectSerializer<T> extends Serializer {
       propertySerializer.serialize({
         obj: obj[propertyKey],
         parent: result,
-        setSelf: (val) => (result[propertyKey] = val),
+        setSelf: (val: unknown) => (result[propertyKey] = val),
         context,
       })
     }
@@ -66,7 +66,7 @@ export class ObjectSerializer<T> extends Serializer {
         obj: obj[propertyKey],
         oldObj: result[propertyKey],
         parent: result,
-        setSelf: (val) => (result[propertyKey] = val),
+        setSelf: (val: unknown) => (result[propertyKey] = val),
         context,
       })
     }

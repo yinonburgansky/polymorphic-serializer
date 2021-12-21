@@ -1,0 +1,14 @@
+src
+tests
+
+!dist
+
+.vscode
+.gitignore
+.npmignore
+.prettierrc
+jest.config.js
+*.tgz
+tsconfig.json
+typedoc.json
+

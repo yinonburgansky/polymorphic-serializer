@@ -1,3 +1,4 @@
+import { classToFunction } from "../utils/class-to-function"
 import { DeserializerParams, Serializer, SerializerParams } from "./serializer"
 
 export class ArraySerializer extends Serializer {
@@ -42,3 +43,5 @@ export class ArraySerializer extends Serializer {
     return obj instanceof Array
   }
 }
+
+export const array = classToFunction(ArraySerializer)

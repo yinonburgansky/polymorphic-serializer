@@ -1,3 +1,4 @@
+import { classToFunction } from "../utils/class-to-function"
 import { DeserializerParams, Serializer, SerializerParams } from "./serializer"
 
 export class PolymorphicSerializer extends Serializer {
@@ -18,3 +19,5 @@ export class PolymorphicSerializer extends Serializer {
     classSerializer.deserialize(params)
   }
 }
+
+export const polymorphic = classToFunction(PolymorphicSerializer)

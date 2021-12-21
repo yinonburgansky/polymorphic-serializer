@@ -1,3 +1,4 @@
+import { classToFunction } from "../utils/class-to-function"
 import { DeserializerParams, Serializer, SerializerParams } from "./serializer"
 
 interface IEventfulSerializer {
@@ -41,3 +42,5 @@ export class EventfulSerializer extends Serializer {
     this.itemSerializer.deserialize(params)
   }
 }
+
+export const eventful = classToFunction(EventfulSerializer)
