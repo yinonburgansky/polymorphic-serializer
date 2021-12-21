@@ -1,4 +1,4 @@
-import { DeserializerParams, Serializer, SerializerParams } from "./Serializer"
+import { DeserializerParams, Serializer, SerializerParams } from "./serializer"
 
 export class MapSerializer extends Serializer {
   constructor(public itemSchema: Serializer) {

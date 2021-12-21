@@ -1,7 +1,7 @@
-import { PrimitiveSerializer } from './PrimitiveSerializer'
-import { DeserializerParams } from './Serializer'
+import { PrimitiveSerializer } from "./primitive-serializer"
+import { DeserializerParams } from "./serializer"
 
-export const IDENTIFIERS_KEY = 'IDENTIFIERS_KEY'
+export const IDENTIFIERS_KEY = "IDENTIFIERS_KEY"
 
 export class IdentifierSerializer extends PrimitiveSerializer {
   deserialize(params: DeserializerParams): void {

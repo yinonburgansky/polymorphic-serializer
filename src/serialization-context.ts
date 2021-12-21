@@ -1,5 +1,5 @@
 import { EventEmitter } from "events"
-import { SerializationContainer } from "./SerializationContainer"
+import { SerializationContainer } from "./serialization-container"
 
 export class SerializationContext {
   constructor(

@@ -1,12 +1,12 @@
-import { constructor } from '../SerializationContainer'
-import { SerializationContext } from '../SerializationContext'
-import { ObjectSerializer } from './ObjectSerializer'
-import { DeserializerParams, Serializer, SerializerParams } from './Serializer'
+import { constructor } from "../serialization-container"
+import { SerializationContext } from "../serialization-context"
+import { ObjectSerializer } from "./object-serializer"
+import { DeserializerParams, Serializer, SerializerParams } from "./serializer"
 
 export class ClassSerializer<T> extends ObjectSerializer<T> {
   constructor(
     public classTarget: constructor<T>,
-    public properties: Map<keyof T & string, Serializer> = new Map(),
+    public properties: Map<keyof T & string, Serializer> = new Map()
   ) {
     super(properties)
   }
@@ -19,7 +19,7 @@ export class ClassSerializer<T> extends ObjectSerializer<T> {
   serializeExisting(
     obj: Record<string, unknown>,
     result: Record<string, unknown>,
-    context: SerializationContext,
+    context: SerializationContext
   ): void {
     this.validateClass(obj)
     super.serializeExisting(obj, result, context)
@@ -34,7 +34,7 @@ export class ClassSerializer<T> extends ObjectSerializer<T> {
   validateClass(obj: unknown): void {
     if (!this.isClass(obj))
       throw new Error(
-        `Expected class ${this.classTarget.name} but received ${obj}`,
+        `Expected class ${this.classTarget.name} but received ${obj}`
       )
   }
 

@@ -1,4 +1,4 @@
-import { DeserializerParams, Serializer, SerializerParams } from "./Serializer"
+import { DeserializerParams, Serializer, SerializerParams } from "./serializer"
 
 interface IPropertySerializer {
   /** getter function name */

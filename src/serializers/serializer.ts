@@ -1,4 +1,4 @@
-import { SerializationContext } from "../SerializationContext"
+import { SerializationContext } from "../serialization-context"
 
 type SetSelf = (obj: unknown) => void
 

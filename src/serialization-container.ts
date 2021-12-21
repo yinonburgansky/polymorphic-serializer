@@ -1,7 +1,7 @@
 import { polymorphic, primitive } from "."
-import { SerializationContext } from "./SerializationContext"
-import { ClassSerializer } from "./serializers/ClassSerializer"
-import { Serializer } from "./serializers/Serializer"
+import { SerializationContext } from "./serialization-context"
+import { ClassSerializer } from "./serializers/class-serializer"
+import { Serializer } from "./serializers/serializer"
 
 export type constructor<T> = {
   new (...args: any[]): T
@@ -25,7 +25,9 @@ export class SerializationContainer {
     return result
   }
 
-  setClassFactory = (resolveInstance: <T>(classTarget: constructor<T>) => T): void => {
+  setClassFactory = (
+    resolveInstance: <T>(classTarget: constructor<T>) => T
+  ): void => {
     this.resolveInstance = resolveInstance
   }
 
@@ -50,9 +52,12 @@ export class SerializationContainer {
     return [serializer, className]
   }
 
-  getSerializerOfClassOrError<T>(target: constructor<T>): [ClassSerializer<T>, string] {
+  getSerializerOfClassOrError<T>(
+    target: constructor<T>
+  ): [ClassSerializer<T>, string] {
     const serializer = this.getSerializerOfClass<T>(target)
-    if (!serializer) throw new Error(`Could not find serializer for class ${target.name}`)
+    if (!serializer)
+      throw new Error(`Could not find serializer for class ${target.name}`)
     return serializer
   }
 
@@ -85,7 +90,10 @@ export class SerializationContainer {
     return result[0]
   }
 
-  deserialize = <T>(json: any, targetSerializer: Serializer = polymorphic()): T => {
+  deserialize = <T>(
+    json: any,
+    targetSerializer: Serializer = polymorphic()
+  ): T => {
     const obj = json
     const context = this.defaultSerializationContext
     const result: any = []

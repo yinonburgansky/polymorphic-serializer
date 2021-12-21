@@ -1,4 +1,4 @@
-import { DeserializerParams, Serializer, SerializerParams } from "./Serializer"
+import { DeserializerParams, Serializer, SerializerParams } from "./serializer"
 
 interface IEventfulSerializer {
   /** should not call setSelf */
@@ -12,7 +12,10 @@ interface IEventfulSerializer {
 }
 
 export class EventfulSerializer extends Serializer {
-  constructor(public itemSerializer: Serializer, public options: IEventfulSerializer) {
+  constructor(
+    public itemSerializer: Serializer,
+    public options: IEventfulSerializer
+  ) {
     super()
   }
 

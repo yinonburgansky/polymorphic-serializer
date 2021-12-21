@@ -1,4 +1,4 @@
-import { DeserializerParams, Serializer, SerializerParams } from "./Serializer"
+import { DeserializerParams, Serializer, SerializerParams } from "./serializer"
 
 export class ArraySerializer extends Serializer {
   constructor(public itemSerializer: Serializer) {

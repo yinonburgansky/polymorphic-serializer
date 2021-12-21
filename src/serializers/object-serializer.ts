@@ -1,6 +1,6 @@
-import { SerializationContext } from "../SerializationContext"
-import { NullableSerializer } from "./NullableSerializer"
-import { DeserializerParams, Serializer, SerializerParams } from "./Serializer"
+import { SerializationContext } from "../serialization-context"
+import { NullableSerializer } from "./nullable-serializer"
+import { DeserializerParams, Serializer, SerializerParams } from "./serializer"
 
 export class ObjectSerializer<T> extends Serializer {
   constructor(

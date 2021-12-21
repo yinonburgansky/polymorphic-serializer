@@ -1,16 +1,16 @@
-import { IdentifierSerializer, IDENTIFIERS_KEY } from './IdentifierSerializer'
-import { DeserializerParams, Serializer, SerializerParams } from './Serializer'
+import { IdentifierSerializer, IDENTIFIERS_KEY } from "./identifier-serializer"
+import { DeserializerParams, Serializer, SerializerParams } from "./serializer"
 
 export class ReferenceSerializer extends Serializer {
   serialize({ obj, setSelf, context }: SerializerParams): void {
     const [classSerializer, className] =
       context.container.getSerializerOfInstanceOrError(obj as any)
     const identifiers = Array.from(classSerializer.properties.entries()).filter(
-      ([, serializer]) => serializer instanceof IdentifierSerializer,
+      ([, serializer]) => serializer instanceof IdentifierSerializer
     )
     if (identifiers.length !== 1) {
       throw new Error(
-        `Reference Serializer could not find identifier for class ${className}, length ${identifiers.length}`,
+        `Reference Serializer could not find identifier for class ${className}, length ${identifiers.length}`
       )
     }
 
