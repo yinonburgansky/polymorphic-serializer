@@ -7,7 +7,7 @@ export class ArraySerializer extends Serializer {
 
   serialize({ obj, setSelf, context }: SerializerParams): void {
     if (!this.isArray(obj))
-      throw new Error(`Expected a list  but received ${obj}`)
+      throw new Error(`Expected an array but received ${obj}`)
     const result: unknown[] = []
     obj.forEach((item, index) =>
       this.itemSerializer.serialize({
@@ -22,7 +22,7 @@ export class ArraySerializer extends Serializer {
 
   deserialize({ obj, oldObj, setSelf, context }: DeserializerParams): void {
     if (!this.isArray(obj))
-      throw new Error(`Expected a list but received ${obj}`)
+      throw new Error(`Expected an array but received ${obj}`)
     let result: unknown[] = []
     if (this.isArray(oldObj)) {
       result = oldObj

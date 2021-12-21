@@ -2,6 +2,7 @@ import "reflect-metadata"
 import { container, injectable, singleton } from "tsyringe"
 import {
   array,
+  container as serializationContainer,
   deserialize,
   identifier,
   map,
@@ -9,15 +10,14 @@ import {
   reference,
   serializable,
   serialize,
-  serializer,
-  setClassFactory,
 } from "../src/index"
 
 describe("serializable", () => {
   beforeEach(() => {
     container.reset()
-    serializer.reset()
+    serializationContainer.reset()
   })
+
   test("should serialize", () => {
     class Test {
       @serializable()
@@ -32,6 +32,7 @@ describe("serializable", () => {
     const deserializedTest = deserialize(serializedTest)
     expect(deserializedTest).toEqual(test)
   })
+
   test("singleton", () => {
     @singleton()
     class Test {
@@ -39,7 +40,7 @@ describe("serializable", () => {
       id = "name"
     }
     const test = container.resolve(Test)
-    setClassFactory(container.resolve.bind(container))
+    serializationContainer.setClassFactory(container.resolve.bind(container))
     serialize(test)
     const serializedTest = serialize(test)
     expect(serializedTest).toEqual({
@@ -90,7 +91,6 @@ describe("serializable", () => {
   })
 
   test("reference", () => {
-    // setClassFactory((c) => new c())
     class Base {
       @serializable(identifier())
       id = "testId"
@@ -151,7 +151,7 @@ describe("serializable", () => {
     })
     const deserializedTest = deserialize<Test>(serializedTest)
     expect(deserializedTest).toEqual(test)
-    // expect(deserializedTest).not.toStrictEqual(test)
+    expect(deserializedTest).not.toBe(test)
     expect(deserializedTest.list[0]).toBeInstanceOf(A)
     expect(deserializedTest.list[1]).toBeInstanceOf(B)
     expect(deserializedTest.refs[0]).toBeInstanceOf(A)
@@ -161,7 +161,7 @@ describe("serializable", () => {
   })
 
   test("map", () => {
-    // setClassFactory((c) => new c())
+    serializationContainer.setClassFactory((c: any) => new c())
     class Base {
       @serializable(identifier())
       id = "testId"

@@ -11,12 +11,11 @@ import { PrimitiveSerializer } from "./serializers/primitive-serializer"
 import { PropertySerializer } from "./serializers/property-serializer"
 import { ReferenceSerializer } from "./serializers/reference-serializer"
 
-export const serializer = new SerializationContainer()
-export const serialize = serializer.serialize
-export const deserialize = serializer.deserialize
-export const serializable = serializer.serializable
-export const serializableClass = serializer.serializableClass
-export const setClassFactory = serializer.setClassFactory
+export const container = new SerializationContainer()
+export const serialize = container.serialize
+export const deserialize = container.deserialize
+export const serializable = container.serializable
+export const serializableClass = container.serializableClass
 
 interface IClass<T, P extends Array<unknown>> {
   new (...args: P): T

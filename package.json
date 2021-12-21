@@ -3,10 +3,13 @@
   "version": "0.0.1",
   "description": "Serialize and deserialize objects",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "author": "Yinon Burgansky",
   "license": "MIT",
   "scripts": {
-    "test": "jest --coverage"
+    "prepublish": "tsc",
+    "test": "jest --coverage",
+    "prettier": "prettier -w ./src/**/*.ts ./tests/**/*.ts"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
