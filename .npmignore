@@ -1,5 +1,6 @@
 src
 tests
+examples
 
 !dist
 
@@ -10,5 +11,6 @@ tests
 jest.config.js
 *.tgz
 tsconfig.json
+tsconfig.build.json
 typedoc.json
-
+.eslintrc.json
